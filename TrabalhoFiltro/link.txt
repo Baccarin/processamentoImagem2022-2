@@ -1,0 +1,3 @@
+https://github.com/richardson-souza/processamento-de-imagem
+
+http://kiwi.bridgeport.edu/cpeg585/Algorithms_for_Image_Processing_and_Computer_Vision.pdf
