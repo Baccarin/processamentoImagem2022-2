@@ -2,6 +2,9 @@ from PIL import Image
 from PIL import ImageFilter
 import math
 from random import randrange
+import time
+
+inicio = time.time()
 
 # Obtendo Imagem Original
 imagem_original = Image.open("paisagemPropria.jpg")
@@ -62,3 +65,6 @@ def prewitt():
     imagem.show()
 #}
 prewitt()
+
+fim = time.time()
+print(fim - inicio)

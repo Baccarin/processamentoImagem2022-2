@@ -1,35 +1,17 @@
-from PIL import Image
-from PIL import ImageFilter
-import math
-from random import randrange
 
-# Obtendo Imagem Original
-imagem_original = Image.open("paisagemPropria.jpg")
-# Convertendo Imagem Original para o modo RGB
-imagem = imagem_original.convert('RGB')
-imagem.show()
-#print(imagem.format, imagem.size, imagem.mode)
+import numpy as np
+import cv2
 
-# Obtendo tamanho das componentes x, y
-# Image.width e Image.height
-largura, altura = imagem.size
+import time
 
+inicio = time.time()
+img = cv2.imread("paisagemPropria.jpg", cv2.IMREAD_GRAYSCALE)
+thresh = 0
+maxValue = 200 # Lembrando que o max valor é 255.
+th, dst = cv2.threshold(img, thresh, maxValue, cv2.THRESH_BINARY);
+cv2.imshow("Original", img)
+cv2.imshow("BINARY", dst)
+cv2.waitKey(0)
 
-# Binarização {
-def binarizacao(limiar):
-    print("Processando binarização...")
-    # Convertendo em escala de cinza
-    # Percorrendo Matriz de Pixels
-    for x in range(largura):
-        for y in range(altura):
-            # Obtendo componentes RGB pixel atual
-            R, G, B = imagem.getpixel((x, y))
-            # Modificando componentes RGB do pixel atual
-            if ((R + G + B) / 3 <= limiar):
-                imagem.putpixel((x, y), (0, 0, 0))
-            else:
-                imagem.putpixel((x, y), (255, 255, 255))
-    # Exibindo imagem modificada
-    imagem.show()
-#}
-binarizacao(120)
+fim = time.time()
+print(fim - inicio)

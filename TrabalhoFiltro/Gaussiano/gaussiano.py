@@ -2,9 +2,13 @@ from PIL import Image
 from PIL import ImageFilter
 import math
 from random import randrange
+import time
+
+  
+inicio = time.time()
 
 # Obtendo Imagem Original
-imagem_original = Image.open("paisagem.jpg")
+imagem_original = Image.open("paisagemPropria.jpg")
 # Convertendo Imagem Original para o modo RGB
 imagem = imagem_original.convert('RGB')
 #imagem.show()
@@ -54,3 +58,6 @@ def filtro_gaussiano():
     imagem.show()
 #}
 filtro_gaussiano()
+
+fim = time.time()
+print(fim - inicio)

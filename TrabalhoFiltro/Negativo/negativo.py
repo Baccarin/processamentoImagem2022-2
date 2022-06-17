@@ -3,8 +3,13 @@ from PIL import ImageFilter
 import math
 from random import randrange
 
+import time
+
+  
+inicio = time.time()
+
 # Obtendo Imagem Original
-imagem_original = Image.open("paisagem.jpg")
+imagem_original = Image.open("paisagemPropria.jpg")
 # Convertendo Imagem Original para o modo RGB
 imagem = imagem_original.convert('RGB')
 #imagem.show()
@@ -27,6 +32,10 @@ def negativo():
             # Modificando componentes RGB do pixel atual
             imagem.putpixel((x, y), (255 - R, 255 - G, 255 - B))
     # Exibindo imagem modificada
-    imagem.show()
+    imagem.show()   
 #}
 negativo()
+
+
+fim = time.time()
+print(fim - inicio)
